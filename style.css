@@ -1,0 +1,30 @@
+@import url(modern-normalize.css);
+
+div {
+    border: 1px solid;
+}
+
+/* Creates the two column setup */
+#container {
+    display: grid;
+    grid-template-columns: 250px auto;
+}
+
+.sidebar {
+    background-color: dodgerblue;
+    width: 250px;
+    position: fixed;
+    height: 100%;
+}
+
+.main-content {
+    grid-column-start: 2;
+}
+
+/* table styling */
+table,
+th,
+td {
+    border: 1px solid;
+    border-collapse: collapse;
+}
