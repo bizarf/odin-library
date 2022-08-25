@@ -13,17 +13,34 @@
 <body>
     <div id="container">
         <div class="sidebar">
-            <label for="title">Title</label>
-            <input type="text" name="title">
+            <div>
+                <form id="addBookForm" action="/index.html">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" required>
+                    <label for="author">Author</label>
+                    <input type="text" name="author" id="author" required>
+                    <label for="pages">Pages</label>
+                    <input type="number" name="pages" id="pages" required>
+                    <label for="read">Read</label>
+                    <!-- <input type="hidden" name="read" class="read" value="no"> -->
+                    <input type="checkbox" name="read" id="read">
+                    <div><input type="submit" value="Add book"></div>
+                </form>
+            </div>
         </div>
         <div class="main-content">
             <table id="library-table" style="width:100%">
-                <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Pages</th>
-                    <th>Read</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Pages</th>
+                        <th>Read</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody id="book-data">
+                </tbody>
             </table>
         </div>
     </div>

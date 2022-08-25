@@ -28,3 +28,15 @@ td {
     border: 1px solid;
     border-collapse: collapse;
 }
+
+.tableCell {}
+
+.test {
+    background-color: brown;
+}
+
+.test2 {
+    background-color: blue;
+}
+
+.deleteBtn {}

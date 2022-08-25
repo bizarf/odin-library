@@ -1,4 +1,7 @@
 let myLibrary = [];
+let table = document.querySelector("#library-table");
+let bookForm = document.querySelector("#addBookForm");
+let bookTableBody = document.querySelector("#book-data");
 
 // the constructor...
 function Book(title, author, pages, read) {
@@ -8,63 +11,86 @@ function Book(title, author, pages, read) {
     this.read = read
 }
 
+// adds new books to the library array
 function addBookToLibrary(title, author, pages, read) {
     const newBook = new Book(title, author, pages, read)
     return myLibrary.push(newBook)
+}
+
+// submit button events
+bookForm.addEventListener("submit", function (e) {
+    e.preventDefault()
+
+    addBookToLibrary(title.value, author.value, pages.value, read.checked)
+    addTableRow(myLibrary.at(-1).title, myLibrary.at(-1).author, myLibrary.at(-1).pages, myLibrary.at(-1).read)
+    clearInputs()
+})
+
+// Resets the form
+function clearInputs() {
+    bookForm.reset();
+}
+
+// creates new table rows
+function addTableRow(title, author, pages, read) {
+    let deleteTd = document.createElement("button")
+    deleteTd.textContent = "Delete"
+    deleteTd.classList = "deleteBtn"
+    let newRow = bookTableBody.insertRow()
+    let titleCell = newRow.insertCell()
+    let authorCell = newRow.insertCell(1)
+    let pagesCell = newRow.insertCell(2)
+    let readCell = newRow.insertCell(3)
+    let deleteBtnCell = newRow.insertCell(4)
+    titleCell.textContent = title
+    authorCell.textContent = author
+    pagesCell.textContent = pages
+    readCell.textContent = read
+    deleteBtnCell.appendChild(deleteTd)
 }
 
 addBookToLibrary(
     "Harry Potter and the Philosopher's Stone",
     "J. K. Rowling",
     223,
-    "Yes"
+    1
 );
 
 addBookToLibrary(
     "The Hobbit",
     "J. R. R. Tolkien",
     310,
-    "No"
+    0
 );
 
-// const test = new Book("test", "test", 343, "yes")
-// const test2 = new Book("woof", "woof", 55, "no")
-// const test3 = new Book("meow", "meow", 43, "yes")
-
+// Display function populates the table
 function libraryDisplay() {
-    myLibrary.forEach(({
-        title,
-        author,
-        pages,
-        read
-    }) => {
-        let table = document.querySelector("#library-table")
-        let newRow = table.insertRow()
-        let titleCell = newRow.insertCell()
-        let authorCell = newRow.insertCell(1)
-        let pagesCell = newRow.insertCell(2)
-        let readCell = newRow.insertCell(3)
-        titleCell.textContent = title
-        authorCell.textContent = author
-        pagesCell.textContent = pages
-        readCell.textContent = read
-    })
-}
-
-// function addTableRow() {
-//     let table = document.querySelector("#library-table")
-//     let newRow = table.insertRow()
-//     let cell = newRow.insertCell()
-//     cell.textContent = "test"
-// }
-
-let log = (item) => {
-    let table = document.querySelector("#library-table")
-    let newRow = table.insertRow();
-    for (const property in item) {
-        let newCell = newRow.insertCell()
-        newCell.textContent = item[property]
+    for (let book of myLibrary) {
+        addTableRow(book.title, book.author, book.pages, book.read)
     }
-
+    return "Library loaded"
 }
-myLibrary.forEach(log);
+libraryDisplay()
+
+// Clears the table except for the headers
+function clearTableRows() {
+    while (table.rows.length > 1) {
+        table.deleteRow(1)
+    }
+}
+
+function checkReadStatus() {
+    let tableCell = document.querySelectorAll(".tableCell");
+    for (let cell of tableCell) {
+        if (cell.textContent === "false") {
+            cell.className = "test"
+        } else if (cell.textContent === "true") {
+            cell.className = "test2"
+            cell.textContent = "POL"
+        }
+    }
+}
+
+function removeFromLibrary() {
+    myLibrary.splice( ? , 1)
+}
