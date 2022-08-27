@@ -1,8 +1,8 @@
 @import url(modern-normalize.css);
 
-div {
+/* div {
     border: 1px solid;
-}
+} */
 
 /* Creates the two column setup */
 #container {
@@ -13,8 +13,7 @@ div {
 .sidebar {
     background-color: dodgerblue;
     width: 250px;
-    position: fixed;
-    height: 100%;
+    height: 100vh;
 }
 
 .main-content {
@@ -29,14 +28,16 @@ td {
     border-collapse: collapse;
 }
 
-.tableCell {}
+.bookStatus {}
 
-.test {
-    background-color: brown;
-}
+.bookRead {}
 
-.test2 {
-    background-color: blue;
-}
+.bookUnread {}
 
 .deleteBtn {}
+
+.bookStatusCol {
+    display: block;
+}
+
+.deleteBtnCol {}
