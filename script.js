@@ -45,6 +45,7 @@ function addTableRow(title, author, pages, read, id) {
     let pagesCell = newRow.insertCell(2)
     let readCell = newRow.insertCell(3)
     let deleteBtnCell = newRow.insertCell(4)
+    pagesCell.classList = "pagesCol"
     readCell.classList = "bookStatusCol"
     deleteBtnCell.classList = "deleteBtnCol"
     titleCell.textContent = title
@@ -98,10 +99,8 @@ function setReadStatusClass() {
     let tableCell = document.querySelectorAll(".bookStatus");
     for (let cell of tableCell) {
         if (cell.textContent === "false") {
-            // cell.className = "bookUnread"
             cell.textContent = "Unread"
         } else if (cell.textContent === "true") {
-            // cell.className = "bookRead"
             cell.textContent = "Read"
         }
     }
