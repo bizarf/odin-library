@@ -4,12 +4,22 @@ let bookForm = document.querySelector("#addBookForm");
 let bookTableBody = document.querySelector("#book-data");
 
 // the constructor...
-function Book(title, author, pages, read, id) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
-    this.id = id
+// function Book(title, author, pages, read, id) {
+//     this.title = title
+//     this.author = author
+//     this.pages = pages
+//     this.read = read
+//     this.id = id
+// }
+
+class Book {
+    constructor(title, author, pages, read, id) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.id = id;
+    }
 }
 
 // adds new books to the library array
