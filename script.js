@@ -10,6 +10,7 @@ let bookTableBody = document.querySelector("#book-data");
 //     this.pages = pages
 //     this.read = read
 //     this.id = id
+//     myLibrary.push(this);
 // }
 
 class Book {
@@ -19,19 +20,19 @@ class Book {
         this.pages = pages;
         this.read = read;
         this.id = id;
+        myLibrary.push(this);
     }
 }
 
 // adds new books to the library array
 function addBookToLibrary(title, author, pages, read) {
     const newBook = new Book(title, author, pages, read)
-    return myLibrary.push(newBook)
+    // return myLibrary.push(newBook)
 }
 
 // submit button events
 bookForm.addEventListener("submit", function (e) {
     e.preventDefault()
-
     addBookToLibrary(title.value, author.value, pages.value, read.checked)
     libraryDisplay()
     clearInputs()
@@ -93,7 +94,6 @@ function libraryDisplay() {
     deleteBtn();
     setReadStatusClass();
     bookStatusToggle();
-    // return "Library loaded"
 }
 libraryDisplay()
 
