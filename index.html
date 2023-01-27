@@ -1,49 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Library app</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="script.js" defer></script>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library app</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-</head>
-
-<body>
-    <div id="container">
-        <div class="sidebar">
-            <div id="logo"><img src="Images/book-open-variant.svg" alt="Library logo" id="logo-image"></div>
-            <div>
-                <form id="addBookForm">
-                    <label for="title">Title</label>
-                    <input type="text" name="title" id="title" required>
-                    <label for="author">Author</label>
-                    <input type="text" name="author" id="author" required>
-                    <label for="pages">Pages</label>
-                    <input type="number" name="pages" id="pages" required>
-                    <label for="read">Read</label>
-                    <input type="checkbox" name="read" id="read">
-                    <div><input type="submit" value="Add book" id="submit"></div>
-                </form>
+    <body>
+        <div id="container">
+            <div class="sidebar">
+                <div id="logo">
+                    <img
+                        src="Images/book-open-variant.svg"
+                        alt="Library logo"
+                        id="logo-image"
+                    />
+                </div>
+                <div>
+                    <form id="addBookForm">
+                        <label for="title">Title</label>
+                        <input type="text" name="title" id="title" required />
+                        <label for="author">Author</label>
+                        <input type="text" name="author" id="author" required />
+                        <label for="pages">Pages</label>
+                        <input type="number" name="pages" id="pages" required />
+                        <label for="read">Read</label>
+                        <input type="checkbox" name="read" id="read" />
+                        <div>
+                            <input type="submit" value="Add book" id="submit" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="main-content">
+                <table id="library-table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Pages</th>
+                            <th>Read</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody id="book-data"></tbody>
+                </table>
             </div>
         </div>
-        <div class="main-content">
-            <table id="library-table">
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Pages</th>
-                        <th>Read</th>
-                        <th>Remove</th>
-                    </tr>
-                </thead>
-                <tbody id="book-data">
-                </tbody>
-            </table>
-        </div>
-    </div>
-</body>
-
+    </body>
 </html>
